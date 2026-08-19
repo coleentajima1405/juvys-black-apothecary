@@ -1,0 +1,172 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+    /* styles */
+    body {
+      background-color: #0b0b0b;
+      color: #dcd6cd;
+      font-family: 'Cormorant Garamond', serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* header & titles */
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      color: #e5c158; /* muted apothecary gold */
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 5px;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
+    }
+
+    .subtitle {
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #a09a90;
+      margin-bottom: 40px;
+      text-align: center;
+      border-bottom: 1px solid #2a2825;
+      padding-bottom: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #c9c3b8;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* box styling */
+    .about-container {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .story-card, .owner-card {
+      background: #141414;
+      border: 1px solid #282520;
+      border-radius: 4px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* typography inside cards */
+    p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #b5afA3;
+      margin: 0;
+    }
+
+    .role {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: #e5c158;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    /* owner image styling */
+    .owner-card img {
+      width: 100%;
+      max-width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 1px solid #201e1b;
+      margin-top: 25px;
+      filter: brightness(0.9) contrast(1.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+       /* footer styling */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2825;
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      color: #a09a90;
+      font-size: 0.95rem;
+    }
+
+    footer nav {
+      margin-top: 10px;
+    }
+
+    footer nav a {
+      color: #e5c158;
+      text-decoration: none;
+      margin: 0 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    footer nav a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Juvy's Black Apothecary</h1>
+  <p class="subtitle">Curative cures for the incurably damned.</p>
+
+  <main class="about-container">
+    
+    <!-- Origin Story Section -->
+    <section class="story-card">
+      <h2 class="section-title">Our Genesis</h2>
+      <p>
+        Born beneath a moonless Manila sky, our sanctuary was forged to rescue coffee from its mundane, pastel-tinted purgatory. Weary of sterile, brightly lit cafes, we built a candlelit haven for the night-dwellers and melancholic souls—a quiet underworld where deep, complex brews fuel late-night creation and dramatic escapes. We didn't just open a shop; we summoned a refuge where you can drink deeply, dream darkly, and belong.
+      </p>
+    </section>
+
+    <!-- Owner / Master Brewer Section -->
+    <section class="owner-card">
+      <h2 class="section-title">Juvy Guira</h2>
+      <div class="role">Owner &amp; Master Brewer</div>
+      
+      <p>
+        A happy 21-year-old CIE student brewing forbidden remedies and dark arts because life is simply too good not to dabble in the shadows. Come grab a curse-free elixir and watch me compile code by day and master the occult by night!
+      </p>
+      
+      <img src="images/owner_photo.jpg" alt="Owner Photo - Juvy Guira">
+    </section>
+
+  </main>
+<footer>
+    <p>&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
+    <nav>
+      <a href="index.html">Products</a> | 
+      <a href="about.html">About</a> | 
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+</body>
