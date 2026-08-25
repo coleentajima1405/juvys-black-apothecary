@@ -1,7 +1,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-    /* Global Styles */
+    /* global styles */
     body {
       background-color: #0b0b0b;
       color: #dcd6cd;
@@ -13,11 +13,20 @@
       align-items: center;
     }
 
-    /* Header & Titles */
-    h1 {
+    /* header & navigation styling */
+    header {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.8rem;
-      color: #e5c158; /* Muted apothecary gold */
+      color: #e5c158; /* muted apothecary gold */
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-bottom: 5px;
@@ -25,16 +34,44 @@
       text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
     }
 
-    .subtitle {
+    header .subtitle {
       font-style: italic;
       font-size: 1.2rem;
       color: #a09a90;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
       text-align: center;
-      border-bottom: 1px solid #2a2825;
-      padding-bottom: 20px;
+    }
+
+    /* navigation bar */
+    .main-nav {
       width: 100%;
-      max-width: 600px;
+      border-top: 1px solid #2a2825;
+      border-bottom: 1px solid #2a2825;
+      padding: 12px 0;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .main-nav a {
+      font-family: 'Cinzel', serif;
+      color: #c9c3b8;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      color: #e5c158;
+      text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
     }
 
     .section-title {
@@ -45,9 +82,10 @@
       margin-top: 20px;
       margin-bottom: 30px;
       text-transform: uppercase;
+      text-align: center;
     }
 
-    /* Product Grid Layout */
+    /* product grid layout */
     .product-container {
       display: flex;
       flex-wrap: wrap;
@@ -57,7 +95,7 @@
       width: 100%;
     }
 
-    /* Individual Product Cards */
+    /* individual product cards */
     article {
       background: #141414;
       border: 1px solid #282520;
@@ -75,6 +113,17 @@
     article:hover {
       transform: translateY(-5px);
       border-color: #e5c158;
+    }
+
+    /* link wrapper to make entire card clickable */
+    .product-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      width: 100%;
     }
 
     article h3 {
@@ -97,10 +146,10 @@
       line-height: 1.5;
       color: #a09a90;
       margin-bottom: 20px;
-      flex-grow: 1; /* Keeps image heights aligned across cards */
+      flex-grow: 1; /* keeps image heights aligned across cards */
     }
 
-    /* Product Images */
+    /* product images */
     article img {
       width: 100%;
       height: 250px;
@@ -114,6 +163,7 @@
     article:hover img {
       filter: brightness(1) contrast(1.1);
     }
+
     /* footer styling */
     footer {
       margin-top: 60px;
@@ -144,112 +194,60 @@
     footer nav a:hover {
       color: #ffffff;
     }
-
-    /* Header & Navigation Styling */
-header {
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  color: #e5c158; /* Muted apothecary gold */
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
-}
-
-header .subtitle {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #a09a90;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-/* Navigation Bar */
-.main-nav {
-  width: 100%;
-  border-top: 1px solid #2a2825;
-  border-bottom: 1px solid #2a2825;
-  padding: 12px 0;
-}
-
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.main-nav a {
-  font-family: 'Cinzel', serif;
-  color: #c9c3b8;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.main-nav a:hover {
-  color: #e5c158;
-  text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
-}
   </style>
 </head>
 
 <body>
 
-  <h1>Juvy's Black Apothecary</h1>
-  <p class="subtitle">Curative cures for the incurably damned.</p>
+  <header>
+    <h1>Juvy's Black Apothecary</h1>
+    <p class="subtitle">Curative cures for the incurably damned.</p>
 
-  <!-- nav -->
-<nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-  
-  <h2 class="section-title">Products</h2>
-x1
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="product-container">
-    
-    <article>
-      <h3>Cryptic Cold Brew</h3>
-      <p class="price">₱130</p>
-      <p class="description">A mysterious blend of dark roast coffee beans and secret ingredients that will leave you feeling both energized and enchanted.</p>
-      <img src="images/cryptic_cold_brew.jpg" alt="Cryptic Cold Brew">
-    </article>
+  <main>
+    <h2 class="section-title">Products</h2>
 
-    <article>
-      <h3>Vampiric Velvet Latte</h3>
-      <p class="price">₱145</p>
-      <p class="description">A rich and velvety latte infused with vampire lore and mysterious ingredients, perfect for those who dare to indulge in the dark side.</p>
-      <img src="images/vampiric_velvet_latte.jpg" alt="Vampiric Velvet Latte">
-    </article>
+    <div class="product-container">
+      
+      <article>
+        <a href="products/cryptic-cold-brew.html" class="product-link">
+          <h3>Cryptic Cold Brew</h3>
+          <p class="price">₱130</p>
+          <p class="description">A mysterious blend of dark roast coffee beans and secret ingredients that will leave you feeling both energized and enchanted.</p>
+          <img src="images/cryptic_cold_brew.jpg" alt="Cryptic Cold Brew">
+        </a>
+      </article>
 
-    <article>
-      <h3>Midnight Mortem Mocha</h3>
-      <p class="price">₱150</p>
-      <p class="description">A decadent mocha infused with midnight secrets and mysterious ingredients, perfect for those who dare to indulge in the dark side.</p>
-      <img src="images/midnight_mortem_mocha.jpg" alt="Midnight Mortem Mocha">
-    </article>
+      <article>
+        <a href="products/vampiric-velvet-latte.html" class="product-link">
+          <h3>Vampiric Velvet Latte</h3>
+          <p class="price">₱145</p>
+          <p class="description">A rich and velvety latte infused with vampire lore and mysterious ingredients, perfect for those who dare to indulge in the dark side.</p>
+          <img src="images/vampiric_velvet_latte.jpg" alt="Vampiric Velvet Latte">
+        </a>
+      </article>
 
-  </div>
-<footer>
+      <article>
+        <a href="products/midnight-mortem-mocha.html" class="product-link">
+          <h3>Midnight Mortem Mocha</h3>
+          <p class="price">₱150</p>
+          <p class="description">A decadent mocha infused with midnight secrets and mysterious ingredients, perfect for those who dare to indulge in the dark side.</p>
+          <img src="images/midnight_mortem_mocha.jpg" alt="Midnight Mortem Mocha">
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
     <p>&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
     <nav>
       <a href="index.html">Products</a> | 
@@ -257,4 +255,6 @@ x1
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
+
 </body>
+</html>
