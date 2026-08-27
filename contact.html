@@ -1,7 +1,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-    /* styles */
+    /* global styles */
     body {
       background-color: #0b0b0b;
       color: #dcd6cd;
@@ -13,11 +13,20 @@
       align-items: center;
     }
 
-    /* header & titles */
-    h1 {
+    /* header & navigation */
+    header {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.8rem;
-      color: #e5c158; /* Muted apothecary gold */
+      color: #e5c158; /* muted apothecary gold */
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-bottom: 5px;
@@ -25,14 +34,47 @@
       text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
     }
 
-    .subtitle {
+    header .subtitle {
       font-style: italic;
       font-size: 1.2rem;
       color: #a09a90;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
       text-align: center;
+    }
+
+    .main-nav {
+      width: 100%;
+      border-top: 1px solid #2a2825;
       border-bottom: 1px solid #2a2825;
-      padding-bottom: 20px;
+      padding: 12px 0;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .main-nav a {
+      font-family: 'Cinzel', serif;
+      color: #c9c3b8;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      color: #e5c158;
+      text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
+    }
+
+    /* main content & form container */
+    main {
       width: 100%;
       max-width: 600px;
     }
@@ -48,67 +90,91 @@
       text-align: center;
     }
 
-    /* contact card */
-    .contact-container {
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .contact-card {
+    form {
       background: #141414;
       border: 1px solid #282520;
+      padding: 30px;
       border-radius: 4px;
-      padding: 35px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    /* list styling */
-    .contact-list {
-      list-style: none;
-      padding: 0;
+    fieldset {
+      border: 1px solid #2a2825;
+      padding: 20px;
+      border-radius: 4px;
       margin: 0;
-      width: 100%;
     }
 
-    .contact-list li {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #b5afA3;
-      padding: 12px 0;
-      border-bottom: 1px dashed #201e1b;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .contact-list li:last-child {
-      border-bottom: none;
-    }
-
-    .contact-label {
+    legend {
       font-family: 'Cinzel', serif;
       color: #e5c158;
+      padding: 0 10px;
+      font-size: 1.1rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      font-size: 1rem;
     }
 
-    .contact-info {
+    /* form controls */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: #c9c3b8;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    input, select, textarea {
+      background-color: #0b0b0b;
+      border: 1px solid #2a2825;
       color: #dcd6cd;
-      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      padding: 10px 12px;
+      border-radius: 2px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .contact-info a {
-      color: #dcd6cd;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
-    .contact-info a:hover {
+    /* high-contrast focus state for keyboard testing */
+    input:focus, select:focus, textarea:focus, button:focus {
+      outline: 2px solid #e5c158;
+      outline-offset: 2px;
+      border-color: #e5c158;
+    }
+
+    /* submit button */
+    button[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #1f1d1a;
+      border: 1px solid #e5c158;
       color: #e5c158;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e5c158;
+      color: #0b0b0b;
     }
 
     /* footer styling */
@@ -135,120 +201,69 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: color 0.3s ease;
     }
 
     footer nav a:hover {
       color: #ffffff;
     }
-    /* Header & Navigation Styling */
-header {
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  color: #e5c158; /* Muted apothecary gold */
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
-}
-
-header .subtitle {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #a09a90;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-/* Navigation Bar */
-.main-nav {
-  width: 100%;
-  border-top: 1px solid #2a2825;
-  border-bottom: 1px solid #2a2825;
-  padding: 12px 0;
-}
-
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.main-nav a {
-  font-family: 'Cinzel', serif;
-  color: #c9c3b8;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.main-nav a:hover {
-  color: #e5c158;
-  text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
-}
   </style>
 </head>
 
+/* form sectiob */
+
 <body>
 
-  <h1>Juvy's Black Apothecary</h1>
-  <p class="subtitle">Curative cures for the incurably damned.</p>
+  <header>
+    <h1>Juvy's Black Apothecary</h1>
+    <p class="subtitle">Curative cures for the incurably damned.</p>
 
-   <!-- nav -->
-<nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-<br>
-  <main class="contact-container">
-    <section class="contact-card">
-      <h2 class="section-title">Summon Us</h2>
-
-      <!-- owner photo lol -->
-      <img src="images/owner_photo.jpg" alt="Owner Photo - Juvy Guira" style="width: 100%; max-width: 350px; height: 350px; object-fit: cover; border-radius: 2px; border: 1px solid #201e1b; margin-top: 25px; filter: brightness(0.9) contrast(1.1); box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
-<br><br>
-      <!-- contact details -->
-      <ul class="contact-list">
-        <li>
-          <span class="contact-label">Proprietor:</span>
-          <span class="contact-info">Juvy Guira</span>
-        </li>
-        <li>
-          <span class="contact-label">Email:</span>
-          <span class="contact-info"><a href="mailto:juvyguira14@gmail.com">juvyguira14@gmail.com</a></span>
-        </li>
-        <li>
-          <span class="contact-label">Phone:</span>
-          <span class="contact-info">+63 914 345 6789</span>
-        </li>
-        <li>
-          <span class="contact-label">Witching Hours:</span>
-          <span class="contact-info">4:00 PM – 3:00 AM</span>
-
-          
-        </li>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="section-title">Summon Us</h2>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Your details</legend>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="product-question">Product Question</option>
+            <option value="order-status">Order Status</option>
+            <option value="wholesale">Wholesale Inquiry</option>
+            <option value="something-else">Something Else</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+      </fieldset>
+
+      <button type="submit">Send message</button>
+    </form>
   </main>
-<footer>
+
+  <footer>
     <p>&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
     <nav>
       <a href="index.html">Products</a> | 
@@ -256,4 +271,6 @@ header .subtitle {
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
+
 </body>
+</html>
