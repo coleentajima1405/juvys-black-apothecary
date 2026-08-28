@@ -1,0 +1,427 @@
+    <style> /*tyle for the product detail page and enquiry form*/
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+    /* global styles */
+    body {
+      background-color: #0b0b0b;
+      color: #dcd6cd;
+      font-family: 'Cormorant Garamond', serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* header & navigation styling */
+    header {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    /* main navigation with relative paths stepping out one folder */
+    .main-nav {
+      width: 100%;
+      border-top: 1px solid #2a2825;
+      border-bottom: 1px solid #2a2825;
+      padding: 12px 0;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .main-nav a {
+      font-family: 'Cinzel', serif;
+      color: #c9c3b8;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      color: #e5c158;
+      text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
+    }
+
+    /* detail page main container */
+    main {
+      max-width: 700px;
+      width: 100%;
+      background: #141414;
+      border: 1px solid #282520;
+      border-radius: 4px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #e5c158;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
+    }
+
+    /* product detail image */
+    main img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 1px solid #201e1b;
+      filter: brightness(0.9) contrast(1.1);
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+
+    /* full description */
+    .description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #b5afa3;
+      margin-bottom: 35px;
+    }
+
+    /* details table with th headers */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 50px;
+      background: #0f0f0f;
+      border: 1px solid #282520;
+    }
+
+    caption {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: #c9c3b8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      font-size: 1.05rem;
+      border-bottom: 1px dashed #201e1b;
+    }
+
+    th {
+      font-family: 'Cinzel', serif;
+      color: #e5c158;
+      text-align: left;
+      width: 40%;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    td {
+      color: #dcd6cd;
+      text-align: right;
+    }
+
+    tr:last-child th, 
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* order enquiry form styling */
+    .enquiry-section {
+      width: 100%;
+      border-top: 1px solid #2a2825;
+      padding-top: 30px;
+      text-align: left;
+    }
+
+    .enquiry-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #e5c158;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    fieldset {
+      border: 1px solid #282520;
+      border-radius: 4px;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #0f0f0f;
+    }
+
+    legend {
+      font-family: 'Cinzel', serif;
+      color: #e5c158;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .choice-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: #c9c3b8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .choice-group label {
+      font-family: 'Cormorant Garamond', serif;
+      text-transform: none;
+      font-size: 1.1rem;
+      color: #dcd6cd;
+    }
+
+    /* input styling */
+    input[type="number"],
+    input[type="email"] {
+      background-color: #080808;
+      border: 1px solid #2a2825;
+      color: #dcd6cd;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      padding: 10px 12px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      width: 100%;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #e5c158;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* focus states for keyboard accessibility */
+    input:focus,
+    button:focus {
+      outline: none;
+      border-color: #e5c158;
+      box-shadow: 0 0 8px rgba(229, 193, 88, 0.5);
+    }
+
+    /* submit button */
+    button[type="submit"] {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0b0b0b;
+      background-color: #e5c158;
+      border: 1px solid #e5c158;
+      padding: 12px 24px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #c9a743;
+      border-color: #c9a743;
+      box-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
+    }
+
+    /* footer styling */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2825;
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+      color: #a09a90;
+      font-size: 0.95rem;
+    }
+
+    footer nav {
+      margin-top: 10px;
+    }
+
+    footer nav a {
+      color: #e5c158;
+      text-decoration: none;
+      margin: 0 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    footer nav a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Cryptic Cold Brew</h1>
+
+    <!-- relative path stepping out to root images folder -->
+    <img src="../images/cryptic_cold_brew.jpg" alt="Cryptic Cold Brew in an ornate potion bottle with a skull base">
+
+    <p class="description">
+      A mysterious blend of dark roast coffee beans and secret ingredients that will leave you feeling both energized and enchanted. Steeped in shadow for over 24 hours, this elixir unveils rich subterranean notes of cocoa, smoky spice, and a velvety smooth finish designed for nocturnal rituals.
+    </p>
+
+    <table>
+      <caption>Product Details</caption>
+      <tr>
+        <th>Roast Level</th>
+        <td>Dark Roast</td>
+      </tr>
+      <tr>
+        <th>Volume</th>
+        <td>500 ml</td>
+      </tr>
+      <tr>
+        <th>Container Material</th>
+        <td>Glass Potion Bottle with Metal Stand</td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td>₱130</td>
+      </tr>
+    </table>
+
+    <!-- order enquiry form section -->
+    <section class="enquiry-section">
+      <h2>Order Enquiry</h2>
+
+      <form action="#" method="post">
+        
+        <!-- quantity input -->
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="15" value="1" required>
+        </div>
+
+        <!-- radio buttons for single-choice delivery method -->
+        <fieldset>
+          <legend>Delivery Method</legend>
+
+          <div class="choice-group">
+            <input type="radio" id="standard-courier" name="delivery_method" value="standard" checked>
+            <label for="standard-courier">Standard Shadow Courier</label>
+          </div>
+
+          <div class="choice-group">
+            <input type="radio" id="express-raven" name="delivery_method" value="express">
+            <label for="express-raven">Express Raven Dispatch</label>
+          </div>
+
+          <div class="choice-group">
+            <input type="radio" id="apothecary-pickup" name="delivery_method" value="pickup">
+            <label for="apothecary-pickup">In-Person Apothecary Pickup</label>
+          </div>
+        </fieldset>
+
+        <!-- checkboxes for multiple-choice optional extras -->
+        <fieldset>
+          <legend>Optional Extras</legend>
+
+          <div class="choice-group">
+            <input type="checkbox" id="gift-wrapping" name="extras" value="gift-wrapping">
+            <label for="gift-wrapping">Gothic Gift Wrapping</label>
+          </div>
+
+          <div class="choice-group">
+            <input type="checkbox" id="wax-seal" name="extras" value="wax-seal">
+            <label for="wax-seal">Custom Wax Seal Certificate</label>
+          </div>
+
+          <div class="choice-group">
+            <input type="checkbox" id="obsidian-coaster" name="extras" value="obsidian-coaster">
+            <label for="obsidian-coaster">Include Obsidian Coaster</label>
+          </div>
+        </fieldset>
+
+        <!-- contact email input -->
+        <div class="form-group">
+          <label for="contact-email">Contact Email</label>
+          <input type="email" id="contact-email" name="contact_email" placeholder="name@domain.com" required>
+        </div>
+
+        <button type="submit">Send enquiry</button>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
+    <nav>
+      <a href="../index.html">Home</a> | 
+      <a href="../about.html">About</a> | 
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
