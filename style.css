@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* variables */
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
 :root {
   --brand-gold: #e5c158;
   --brand-gold-hover: #c9a743;
@@ -12,9 +14,12 @@
   --text-heading: #c9c3b8;
   --text-muted: #b5afa3;
   --text-subtle: #a09a90;
+  --bg-light: #f4efd3;
 }
 
-/* base reset */
+/* ==========================================================================
+   2. BASE STYLES
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -48,6 +53,10 @@ a {
   color: var(--brand-gold);
   text-decoration: none;
 }
+
+/* ==========================================================================
+   3. LAYOUT REGIONS
+   ========================================================================== */
 
 /* header & site navigation */
 header {
@@ -105,6 +114,7 @@ header .subtitle {
   font-size: 1rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
@@ -113,7 +123,7 @@ header .subtitle {
   text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
 }
 
-/* main page layout & universal product card wrapper */
+/* main page layout & card wrapper */
 main {
   width: 100%;
   max-width: 800px;
@@ -138,7 +148,7 @@ main h1, main h2 {
   text-align: center;
 }
 
-/* main images (product pictures) */
+/* main images */
 main img {
   max-width: 380px;
   width: 100%;
@@ -149,7 +159,7 @@ main img {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* main tables (product details) */
+/* main tables */
 main table {
   width: 100%;
   max-width: 500px;
@@ -177,7 +187,41 @@ main caption {
   letter-spacing: 1px;
 }
 
-/* homepage grid override (resets main card padding for grid view) */
+/* footer */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--muted-border);
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  color: var(--text-subtle);
+  font-size: 0.95rem;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+footer nav {
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+footer nav a {
+  color: var(--brand-gold);
+  margin: 0 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   4. COMPONENTS
+   ========================================================================== */
+
+/* product grid layout */
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -190,11 +234,16 @@ main caption {
   box-shadow: none;
 }
 
+/* product card component */
 .product-card {
   background-color: var(--panel-bg);
-  border: 1px solid var(--card-border);
   border-radius: 4px;
   padding: 20px;
+  border-top: 1px solid var(--card-border);
+  border-right: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  border-left: 4px solid var(--brand-gold);
+  margin-bottom: 24px;
   max-width: 300px;
   width: 100%;
   text-align: center;
@@ -203,7 +252,6 @@ main caption {
 }
 
 .product-card:hover {
-  border-color: var(--brand-gold);
   transform: translateY(-2px);
 }
 
@@ -232,7 +280,7 @@ main caption {
   font-size: 0.95rem;
 }
 
-/* order button links & enquiry buttons */
+/* order & enquiry buttons */
 main a[href*="enquiry"],
 .order-button, 
 .order-btn {
@@ -260,7 +308,7 @@ main a[href*="enquiry"]:hover,
   box-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
 }
 
-/* form layout & input styling */
+/* contact form component */
 form {
   width: 100%;
   max-width: 600px;
@@ -306,16 +354,15 @@ textarea {
   color: var(--text-main);
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.05rem;
-  outline: none;
   transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
+/* focus states for accessibility */
+input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--brand-gold);
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 2px;
 }
 
 input[type="radio"],
@@ -334,7 +381,7 @@ button[type="submit"] {
   text-transform: uppercase;
   color: var(--dark-ink);
   background-color: var(--brand-gold);
-  border: 1px solid var(--brand-gold);
+  border: none;
   padding: 12px 30px;
   border-radius: 2px;
   font-weight: 600;
@@ -342,38 +389,13 @@ button[type="submit"] {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+input[type="submit"]:focus,
+button[type="submit"]:focus {
+  outline: 3px solid var(--text-main);
+  outline-offset: 2px;
+}
+
 input[type="submit"]:hover,
 button[type="submit"]:hover {
   background-color: var(--brand-gold-hover);
-  border-color: var(--brand-gold-hover);
-}
-
-/* footer */
-footer {
-  margin-top: 60px;
-  padding-top: 20px;
-  border-top: 1px solid var(--muted-border);
-  text-align: center;
-  width: 100%;
-  max-width: 800px;
-  color: var(--text-subtle);
-  font-size: 0.95rem;
-  background: transparent;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-footer nav {
-  border: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-footer nav a {
-  color: var(--brand-gold);
-  margin: 0 8px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
