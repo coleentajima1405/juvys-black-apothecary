@@ -241,7 +241,7 @@ footer nav a {
 .product-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
   width: 100%;
   background: transparent;
@@ -252,7 +252,7 @@ footer nav a {
 
 /* product card component */
 .product-card {
-  flex: 1 1 220px; /* Grow, shrink, baseline ~220px to fit 3-across in 1000px */
+  flex: 1 1 240px; /* Grow, shrink, baseline ~240px to fit 3-across in 1000px */
   max-width: 100%;
   background-color: var(--panel-bg);
   border-radius: 4px;
@@ -414,4 +414,31 @@ button[type="submit"]:focus {
 input[type="submit"]:hover,
 button[type="submit"]:hover {
   background-color: var(--brand-gold-hover);
+}
+
+/* mobile responsive layout */
+@media (max-width: 650px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  header, .site-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  .product-grid {
+    gap: 16px;
+  }
+
+  .product-card {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
 }
