@@ -55,7 +55,7 @@ a {
 /* header as a flex container (2 direct children: h1 and nav) */
 header, .site-header {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px; /* Widened to match main content area */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,7 +120,7 @@ header h1 a, .site-title a {
 /* flexbox centering demo from lesson 6.4 */
 .hero-banner {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   height: 150px; /* height gives vertical room to center */
   display: flex;
   justify-content: center; /* horizontal centering */
@@ -144,7 +144,7 @@ header h1 a, .site-title a {
 /* main page layout & card wrapper */
 main {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px; /* Increased from 800px to allow 3 cards across */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +152,7 @@ main {
   background: var(--panel-bg);
   border: 1px solid var(--card-border);
   border-radius: 4px;
-  padding: 40px;
+  padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
@@ -212,7 +212,7 @@ footer {
   border-top: 1px solid var(--muted-border);
   text-align: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   color: var(--text-subtle);
   font-size: 0.95rem;
   background: transparent;
@@ -252,6 +252,8 @@ footer nav a {
 
 /* product card component */
 .product-card {
+  flex: 1 1 220px; /* Grow, shrink, baseline ~220px to fit 3-across in 1000px */
+  max-width: 100%;
   background-color: var(--panel-bg);
   border-radius: 4px;
   padding: 20px;
@@ -259,9 +261,7 @@ footer nav a {
   border-right: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
   border-left: 4px solid var(--brand-gold);
-  margin-bottom: 24px;
-  max-width: 300px;
-  width: 100%;
+  margin-bottom: 0;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease, border-color 0.2s ease;
