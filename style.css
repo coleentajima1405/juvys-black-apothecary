@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* ==========================================================================
-   1. VARIABLES
-   ========================================================================== */
+/* variables */
 :root {
   --brand-gold: #e5c158;
   --brand-gold-hover: #c9a743;
@@ -17,9 +15,7 @@
   --bg-light: #f4efd3;
 }
 
-/* ==========================================================================
-   2. BASE STYLES
-   ========================================================================== */
+/* base styles */
 * {
   box-sizing: border-box;
 }
@@ -54,64 +50,62 @@ a {
   text-decoration: none;
 }
 
-/* ==========================================================================
-   3. LAYOUT REGIONS
-   ========================================================================== */
+/* layout regions & flexbox header */
 
-/* header & site navigation */
-header {
+/* header as a flex container (2 direct children: h1 and nav) */
+header, .site-header {
   width: 100%;
   max-width: 800px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  border-bottom: 1px solid var(--muted-border);
+  padding-bottom: 20px;
   margin-bottom: 40px;
 }
 
-header h1 {
+/* shop title on the far left */
+header h1, .site-title {
   font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   color: var(--brand-gold);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
-  text-align: center;
+  letter-spacing: 2px;
+  margin: 0;
   text-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
 }
 
-header .subtitle {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--text-subtle);
-  margin-bottom: 25px;
-  text-align: center;
+header h1 a, .site-title a {
+  color: var(--brand-gold);
+  text-decoration: none;
 }
 
+/* nav on the far right */
 .main-nav, nav {
-  width: 100%;
-  border-top: 1px solid var(--muted-border);
-  border-bottom: 1px solid var(--muted-border);
-  padding: 12px 0;
+  width: auto;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
+/* flex container for links with gap spacing */
 .main-nav ul, nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  gap: 20px;
+  align-items: center;
 }
 
 .main-nav li, nav li {
-  display: inline-block;
+  margin: 0;
 }
 
 .main-nav a, nav a {
   font-family: 'Cinzel', serif;
   color: var(--text-heading);
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -121,6 +115,30 @@ header .subtitle {
 .main-nav a:hover, nav a:hover {
   color: var(--brand-gold);
   text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
+}
+
+/* flexbox centering demo from lesson 6.4 */
+.hero-banner {
+  width: 100%;
+  max-width: 800px;
+  height: 150px; /* height gives vertical room to center */
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  background-color: var(--panel-bg);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--brand-gold);
+  border-radius: 4px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.hero-banner p {
+  font-family: 'Cinzel', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  margin: 0;
 }
 
 /* main page layout & card wrapper */
@@ -217,9 +235,7 @@ footer nav a {
   letter-spacing: 1px;
 }
 
-/* ==========================================================================
-   4. COMPONENTS
-   ========================================================================== */
+/* components */
 
 /* product grid layout */
 .product-grid {
