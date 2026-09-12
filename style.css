@@ -55,7 +55,7 @@ a {
 /* header as a flex container (2 direct children: h1 and nav) */
 header, .site-header {
   width: 100%;
-  max-width: 1000px; /* Widened to match main content area */
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -121,10 +121,10 @@ header h1 a, .site-title a {
 .hero-banner {
   width: 100%;
   max-width: 1000px;
-  height: 150px; /* height gives vertical room to center */
+  height: 150px;
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
+  justify-content: center;
+  align-items: center;
   background-color: var(--panel-bg);
   border: 1px solid var(--card-border);
   border-left: 4px solid var(--brand-gold);
@@ -143,8 +143,8 @@ header h1 a, .site-title a {
 
 /* main page layout & card wrapper */
 main {
- 
-  max-width: 1000px; /* Increased from 800px to allow 3 cards across */
+  width: 100%; /* Restored width: 100% so main shrinks on mobile */
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +152,7 @@ main {
   background: var(--panel-bg);
   border: 1px solid var(--card-border);
   border-radius: 4px;
-  padding: 40px 30px;
+  padding: 40px 20px; /* Adjusted horizontal padding slightly for tighter mobile viewports */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
@@ -252,7 +252,8 @@ footer nav a {
 
 /* product card component */
 .product-card {
-  flex: 1 1 240px; /* Grow, shrink, baseline ~240px to fit 3-across in 1000px */
+  flex: 1 1 280px; /* Raised baseline slightly to wrap to 1 column sooner */
+  min-width: 250px; /* Prevents card squashing on small screens */
   max-width: 100%;
   background-color: var(--panel-bg);
   border-radius: 4px;
