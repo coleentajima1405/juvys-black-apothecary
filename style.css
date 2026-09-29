@@ -20,16 +20,26 @@
   box-sizing: border-box;
 }
 
+/* base mobile layout (mobile-first) */
 body {
   background-color: var(--dark-ink);
   color: var(--text-main);
   font-family: 'Cormorant Garamond', serif;
   line-height: 1.7;
-  margin: 0;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+  padding: 20px 15px;
+  width: 100%;
+  max-width: 1000px;
+  
+  /* base single-column grid: main sits above side for mobile */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "masthead"
+    "main"
+    "side"
+    "foot";
+  gap: 24px;
 }
 
 p {
@@ -50,21 +60,17 @@ a {
   text-decoration: none;
 }
 
-/* layout regions & flexbox header */
-
-/* header as a flex container (2 direct children: h1 and nav) */
+/* header area */
 header, .site-header {
+  grid-area: masthead;
   width: 100%;
-  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--muted-border);
   padding-bottom: 20px;
-  margin-bottom: 40px;
 }
 
-/* shop title on the far left */
 header h1, .site-title {
   font-family: 'Cinzel', serif;
   font-size: 1.8rem;
@@ -80,7 +86,6 @@ header h1 a, .site-title a {
   text-decoration: none;
 }
 
-/* nav on the far right */
 .main-nav, nav {
   width: auto;
   border: none;
@@ -88,7 +93,6 @@ header h1 a, .site-title a {
   margin: 0;
 }
 
-/* flex container for links with gap spacing */
 .main-nav ul, nav ul {
   list-style: none;
   margin: 0;
@@ -96,10 +100,6 @@ header h1 a, .site-title a {
   display: flex;
   gap: 20px;
   align-items: center;
-}
-
-.main-nav li, nav li {
-  margin: 0;
 }
 
 .main-nav a, nav a {
@@ -117,34 +117,50 @@ header h1 a, .site-title a {
   text-shadow: 0 0 8px rgba(229, 193, 88, 0.4);
 }
 
-/* flexbox centering demo from lesson 6.4 */
-.hero-banner {
-  width: 100%;
-  max-width: 1000px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--panel-bg);
+/* sidebar area */
+aside {
+  grid-area: side;
+  background: var(--panel-bg);
   border: 1px solid var(--card-border);
-  border-left: 4px solid var(--brand-gold);
   border-radius: 4px;
-  margin-bottom: 40px;
-  padding: 20px;
+  padding: 24px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  height: fit-content;
 }
 
-.hero-banner p {
-  font-family: 'Cinzel', serif;
-  font-style: italic;
-  font-size: 1.2rem;
+aside h3 {
+  font-size: 1.1rem;
+  color: var(--brand-gold);
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--muted-border);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+aside a {
   color: var(--text-heading);
-  margin: 0;
+  font-size: 1rem;
+  transition: color 0.2s ease;
 }
 
-/* main page layout & card wrapper */
+aside a:hover {
+  color: var(--brand-gold);
+}
+
+/* main area */
 main {
-  width: 100%; /* Restored width: 100% so main shrinks on mobile */
-  max-width: 1000px;
+  grid-area: main;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +168,7 @@ main {
   background: var(--panel-bg);
   border: 1px solid var(--card-border);
   border-radius: 4px;
-  padding: 40px 20px; /* Adjusted horizontal padding slightly for tighter mobile viewports */
+  padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
@@ -166,7 +182,6 @@ main h1, main h2 {
   text-align: center;
 }
 
-/* main images */
 main img {
   max-width: 380px;
   width: 100%;
@@ -177,47 +192,16 @@ main img {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* main tables */
-main table {
-  width: 100%;
-  max-width: 500px;
-  margin: 25px auto;
-  border-collapse: collapse;
-}
-
-main th, main td {
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--muted-border);
-}
-
-main th {
-  color: var(--brand-gold);
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-}
-
-main caption {
-  font-family: 'Cinzel', serif;
-  color: var(--brand-gold);
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-/* footer */
+/* footer area */
 footer {
-  margin-top: 60px;
+  grid-area: foot;
   padding-top: 20px;
   border-top: 1px solid var(--muted-border);
   text-align: center;
   width: 100%;
-  max-width: 1000px;
   color: var(--text-subtle);
   font-size: 0.95rem;
   background: transparent;
-  box-shadow: none;
-  border-radius: 0;
 }
 
 footer nav {
@@ -244,17 +228,11 @@ footer nav a {
   gap: 24px;
   justify-content: center;
   width: 100%;
-  background: transparent;
-  padding: 0;
-  border: none;
-  box-shadow: none;
 }
 
-/* product card component */
 .product-card {
-  flex: 1 1 280px; /* Raised baseline slightly to wrap to 1 column sooner */
-  min-width: 250px; /* Prevents card squashing on small screens */
-  max-width: 100%;
+  flex: 1 1 200px;
+  min-width: 0;
   background-color: var(--panel-bg);
   border-radius: 4px;
   padding: 20px;
@@ -262,7 +240,6 @@ footer nav a {
   border-right: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
   border-left: 4px solid var(--brand-gold);
-  margin-bottom: 0;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease, border-color 0.2s ease;
@@ -336,9 +313,9 @@ form {
 fieldset {
   border: 1px solid var(--muted-border);
   border-radius: 4px;
-  padding: 20px;
+  padding: 24px;
   margin-bottom: 20px;
-  background-color: var(--panel-bg);
+  background-color: var(--dark-ink);
   text-align: left;
 }
 
@@ -363,9 +340,9 @@ input[type="number"],
 select,
 textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px;
   margin-bottom: 15px;
-  background-color: var(--dark-ink);
+  background-color: var(--panel-bg);
   border: 1px solid var(--card-border);
   border-radius: 2px;
   color: var(--text-main);
@@ -378,8 +355,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid var(--brand-gold);
-  outline-offset: 2px;
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 1px;
 }
 
 input[type="radio"],
@@ -398,7 +375,7 @@ button[type="submit"] {
   text-transform: uppercase;
   color: var(--dark-ink);
   background-color: var(--brand-gold);
-  border: none;
+  border: 1px solid var(--brand-gold);
   padding: 12px 30px;
   border-radius: 2px;
   font-weight: 600;
@@ -408,11 +385,24 @@ button[type="submit"] {
 
 input[type="submit"]:focus,
 button[type="submit"]:focus {
-  outline: 3px solid var(--text-main);
+  outline: 2px solid var(--text-main);
   outline-offset: 2px;
 }
 
 input[type="submit"]:hover,
 button[type="submit"]:hover {
   background-color: var(--brand-gold-hover);
+  border-color: var(--brand-gold-hover);
+}
+
+/* desktop enhancement (min-width: 700px) */
+@media (min-width: 700px) {
+  body {
+    padding: 40px 20px;
+    grid-template-columns: 220px 1fr;
+    grid-template-areas:
+      "masthead masthead"
+      "side     main"
+      "foot     foot";
+  }
 }
