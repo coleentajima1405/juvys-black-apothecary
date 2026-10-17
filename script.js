@@ -70,21 +70,41 @@ if (stockElement) {
     stockElement.textContent = "Status: Sold out";
   }
 }
-// 2. fee Delivery check (&& operator + ternary)
-const rawOrderTotal = "450"; // simulating a value coming from a form or variable
-const numericOrderTotal = Number(rawOrderTotal); // ensuring numeric type for arithmetic
-const isMember = true; // change to false to test
+// 1. Calculate Estimated Elixir Subtotal (sum of all product prices)
+const allProductCards = document.querySelectorAll('.product-card');
+let grandTotal = 0;
 
-// free delivery if total is over 300 AND user is a member
-const isEligibleForFreeDelivery = numericOrderTotal > 300 && isMember === true;
-const deliveryFee = isEligibleForFreeDelivery ? 0 : 150;
-const finalTotal = numericOrderTotal + deliveryFee;
+allProductCards.forEach(card => {
+  const price = Number(card.getAttribute('data-price')) || 0;
+  grandTotal += price;
+});
 
-const deliveryElement = document.getElementById('delivery-info');
-if (deliveryElement) {
-  deliveryElement.textContent = `Order Subtotal: ₱${numericOrderTotal} | Delivery Fee: ₱${deliveryFee} | Final Total: ₱${finalTotal}`;
+const subtotalDisplay = document.getElementById('cart-subtotal');
+if (subtotalDisplay) {
+  subtotalDisplay.textContent = `Estimated Elixir Subtotal: ₱${grandTotal}`;
 }
 
+// 2. Dynamic Delivery Info Banner
+const deliveryElement = document.getElementById('delivery-info');
+const fixedDeliveryFee = 50;
+
+function updateDeliveryBanner(price) {
+  if (!deliveryElement) return;
+  const total = price + fixedDeliveryFee;
+  deliveryElement.textContent = `Order Subtotal: ₱${price} | Delivery Fee: ₱${fixedDeliveryFee} | Final Total: ₱${total}`;
+}
+
+// Default display on page load
+const initialPrice = allProductCards.length > 0 ? Number(allProductCards[0].getAttribute('data-price')) : 0;
+updateDeliveryBanner(initialPrice);
+
+// 3. Hover Event Listeners on Product Cards
+allProductCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    const productPrice = Number(card.getAttribute('data-price')) || 0;
+    updateDeliveryBanner(productPrice);
+  });
+});
 // 3. shop open or closed (boolean + ternary)
 const isOpen = true; // change to false to test
 const shopStatusElement = document.getElementById('shop-status');
