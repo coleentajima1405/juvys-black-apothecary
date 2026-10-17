@@ -7,9 +7,10 @@
 <aside>
     <h3>Categories</h3>
     <ul>
-      <li><a href="#">Cold Elixirs</a></li>
-      <li><a href="#">Hot Potions</a></li>
-      <li><a href="#">Midnight Desserts</a></li>
+      <li><a href="index.html?category=cold">Cold Elixirs</a></li>
+      <li><a href="index.html?category=hot">Hot Potions</a></li>
+      <li><a href="index.html?category=desserts">Midnight Desserts</a></li>
+      <li><a href="index.html?category=all">Show All</a></li>
     </ul>
     <h3>Hours</h3>
     <p>Daily: 6 PM - 3 AM</p>
@@ -19,7 +20,7 @@
 <body>
 
   <header>
-    <h1>Juvy's Black Apothecary</h1>
+    <h1 id="shop-title" class="site-title">Juvy's Black Apothecary</h1>
     <p class="subtitle">Curative cures for the incurably damned.</p>
 
     <nav class="main-nav">
@@ -33,12 +34,18 @@
 
   <main>
     <h2 class="section-title">Products</h2>
+    <p id="cart-subtotal" class="subtotal-display"></p>
+
+    <section class="store-status">
+      <p id="shop-status"></p>
+      <p id="stock-status"></p>  
+      <p id="delivery-info"></p>
+    </section>
 
     <!-- product grid container -->
     <div class="product-grid">
-      
       <!-- product card 1 -->
-      <article class="product-card">
+      <article class="product-card" data-category="cold">
         <a href="products/cryptic-cold-brew.html" class="product-link">
           <h3>Cryptic Cold Brew</h3>
           <p class="price">₱130</p>
@@ -48,7 +55,7 @@
       </article>
 
       <!-- product card 2 -->
-      <article class="product-card">
+      <article class="product-card" data-category="cold">
         <a href="products/vampiric-velvet-latte.html" class="product-link">
           <h3>Vampiric Velvet Latte</h3>
           <p class="price">₱145</p>
@@ -58,7 +65,7 @@
       </article>
 
       <!-- product card 3 -->
-      <article class="product-card">
+      <article class="product-card" data-category="hot">
         <a href="products/midnight-mortem-mocha.html" class="product-link">
           <h3>Midnight Mortem Mocha</h3>
           <p class="price">₱150</p>
@@ -67,17 +74,26 @@
         </a>
       </article>
 
+      <article class="product-card" data-category="desserts">
+        <a href="products/cryptmasters-curd.html" class="product-link">
+          <h3>The Cryptmaster's Curd</h3>
+          <p class="price">₱165</p>
+          <p class="description">A tart lemon curd tartlet dusted with activated charcoal and blackberry glaze, crafted for nocturnal indulgences.</p>
+          <img src="images/cryptmasters-curd.jpg" alt="The Cryptmaster's Curd">
+        </a>
+      </article>
+
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
+    <p id="copyright">&copy; 2026 Juvy's Black Apothecary. All rights reserved in the shadows.</p>
     <nav>
       <a href="index.html">Products</a> | 
       <a href="about.html">About</a> | 
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
